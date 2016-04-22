@@ -1,0 +1,33 @@
+\documentclass[../skript.tex]{subfiles}
+
+\chapter{NP-Completeness and Problems}
+	\section{NP-Completeness}
+
+	\begin{definition}[Basics]
+		An \textbf{alphabeth} is a finite set of symbols. A \textbf{string} is a finite sequence of symbols. The \textbf{length of a string} is the number of symbols in the string, denoted by $|S|$.\newline\noindent
+		If $\Sigma$ is an alphabeth and $n\in\mathbb{N}$, then $\Sigma^n$ denotes the. set of all strings with length $n$ and symbols in $\Sigma$. Moreover define
+		\[
+			\Sigma^* \coloneqq \bigcup_{n=0}^\infty \Sigma^n.
+		\]
+	\end{definition}
+	\begin{definition}[Decision Problem]
+		A \textbf{Decision Problem} is a problem allowing the answer \underline{yes} ($1$) or \underline{false} ($0$). This corresponds to subsets of $\Sigma^*$, the so called \textbf{languages}. Let $X\subseteq \{0,1\}^*$ be a decision problem. Algorithm A \textbf{decides} $\mathbf{X}$ if we have: A return value $A(s)\in\{\text{``yes''},\text{``no''}\}$ s.t. 
+		\[
+			A(s) = \text{``yes''} \quad\Longleftrightarrow \quad s\in X.
+		\] 
+		$A$ has \textbf{polynomial runtime} if there exists some polynomial $p$ s.t. the number of steps (i.e. the number of head moves of a touring machine) is bounded by $O(p(|s|))$ for input $s$.
+	\end{definition}
+	Problems can be grouped according to their difficulty:
+	\begin{itemize}
+		\item [\framebox{P}] All decision problems for which a polynomial time algorithm exists
+		\item [\framebox{NP}] All problems where the solution can be verified in polynomial time
+	\end{itemize}
+
+	Let $X$ be a decision problem. We have that $X\in NP$ if there exists a polynomial time algorithm $A:\{0,1\}^*\times\{0,1\}^*\to\{\text{``yes''},\text{``no''}\}$ and a polynomial $p$ s.t. $s\in X\,\Leftrightarrow \exists t\in\{0,1\}^*$ s.t. $|t| \leq p(|s|)$ and $A(s,t) = \text{``yes''}$.
+	\section*{Reducibility}
+		Let $X$ and $Y$ be decision problems. We say that $Y$ is \textbf{polynomial time reducible to $X$} (or $Y$ polynomially reduces to $X$) if there exists a function 
+		\[
+			f:\{0,1\}^*\to\{0,1\}^x
+		\]
+		computable in polynomial time s.t. $f(s)\in X\Leftrightarrow s\in Y$.
+		
