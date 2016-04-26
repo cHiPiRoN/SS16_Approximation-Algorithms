@@ -1,4 +1,4 @@
-\documentclass[../skript.tex]{subfiles}
+\documentclass[../script.tex]{subfiles}
 
 		\subsection{Partition}
 			\textbf{Input:} $a_1,...,a_n\in\mathbb{N}$\par
@@ -95,14 +95,14 @@
 			\begin{proof}
 				Obviously the problem is in NP.
 				\begin{figure}
-					\includegraphics[width=0.4\textwidth]{Images/karp1.png}
-					\caption{Graph used for the proof of \cref{thm17}}
+					\includegraphics[width=0.4\textwidth]{Images/app7.png}
+					\caption{Graph used for the proof of \cref{thm17}; As seen on the left, the color for $x$ and $y$ are uniquely defined by the color of $z$}
 					\label{fig7}
 				\end{figure}
 				Using the graphs showing in \cref{fig7} we can use a reduction from $3$-SAT:\par
 				Construct such a graph for each clause $C_1,...,C_m$. Identify vertices that correspond to the same literal.
 				\begin{figure}
-					\includegraphics[width=0.4\textwidth]{Images/karp1.png}
+					\includegraphics[width=0.4\textwidth]{Images/app8.png}
 					\caption{How the graph is constructed for the proof of \cref{thm17}}
 					\label{fig8}					
 				\end{figure}

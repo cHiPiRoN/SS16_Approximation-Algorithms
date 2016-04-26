@@ -1,4 +1,4 @@
-\documentclass[../skript.tex]{subfiles}
+\documentclass[../script.tex]{subfiles}
 
 \chapter{NP-Completeness and Problems}
 	\section{NP-Completeness}
@@ -24,10 +24,43 @@
 	\end{itemize}
 
 	Let $X$ be a decision problem. We have that $X\in NP$ if there exists a polynomial time algorithm $A:\{0,1\}^*\times\{0,1\}^*\to\{\text{``yes''},\text{``no''}\}$ and a polynomial $p$ s.t. $s\in X\,\Leftrightarrow \exists t\in\{0,1\}^*$ s.t. $|t| \leq p(|s|)$ and $A(s,t) = \text{``yes''}$.
-	\section*{Reducibility}
-		Let $X$ and $Y$ be decision problems. We say that $Y$ is \textbf{polynomial time reducible to $X$} (or $Y$ polynomially reduces to $X$) if there exists a function 
-		\[
-			f:\{0,1\}^*\to\{0,1\}^x
-		\]
-		computable in polynomial time s.t. $f(s)\in X\Leftrightarrow s\in Y$.
-		
+	
+	\section{Problems of complexity NP}
+		In this section the most standard NP-complete problems are presented.
+		\subsection{Reducibility}
+			Let $X$ and $Y$ be decision problems. We say that $Y$ is \textbf{polynomial time reducible to $X$} (or $Y$ polynomially reduces to $X$) if there exists a function 
+			\[
+				f:\{0,1\}^*\to\{0,1\}^x
+			\]
+			computable in polynomial time s.t. $f(s)\in X\Leftrightarrow s\in Y$.\par 
+
+			\begin{theorem}\label{thm1}
+				If $Y$ is polynomial time reducible to $X$ and there exists a polynomial time algorithm for $X$ then there exists a polynomial time algorithm for $Y$.
+			\end{theorem}
+
+			\begin{definition}
+				A problem $X$ is called \textbf{NP-hard}, if all problems in NP polynomially reduce to $X$. It is called \textbf{NP-complete}, if it is NP-hard and in NP.
+			\end{definition}
+
+			\begin{theorem}\label{thm2}
+				If there exists a polynomial time algorithm for an NP-complete problem, then P=NP
+			\end{theorem}
+
+		\subsection{Satisfiability (SAT)}
+			\textbf{Input:} A boolean formula $F$ in conjunctive normal form\par 
+			\textbf{Question:} Is $F$ satisfiable?
+
+			\begin{theorem}[Cook]\label{thm3}
+				Satisfiability is NP-complete.
+			\end{theorem}
+
+			\textbf{Input: } A boolean formula $F$ in conjunctive normal form where each clause contains at most $k$ literals\par 
+			\textbf{Question:} Is $F$ satisfiable?
+
+			\begin{theorem}\label{thm4}
+				$k$-SAT is NP-complete for $k\geq 3$
+			\end{theorem}
+
+			\begin{remark}
+				$2$-SAT is in \framebox{P}.
+			\end{remark}

@@ -1,4 +1,4 @@
-\documentclass[../skript.tex]{subfiles}
+\documentclass[../script.tex]{subfiles}
 
 	\subsection{Directed Hamiltonian Cycle Problem}
 		\underline{Input: } A digraph $G$\par
@@ -8,30 +8,34 @@
 			Directed Hamiltonian Cycle is NP-complete.
 		\end{theorem}
 		\begin{proof}
-			\begin{figure}\label{fig1}[ht]
+			\begin{figure}[ht]
 				\centering
-				\includegraphics[width=0.5\textwidth]{Images/karp1.png}
+				\includegraphics[width=0.5\textwidth]{Images/app1.png}
 				\caption{The path used for the proof of \cref{thm5}}
+				\label{fig1}
 			\end{figure}
 			The problem is obviously in NP. Reduce 3-SAT to Directed Hamiltonian Cycles as follows:\par
 			Let $F = C_1\land C_2\land ...\land C_k$ be a 3-SAT formula in variables $x_1,...,x_n$. Construct $G$ as follows: Path $P_i$ for $i=1,...,n$ on $3R+3$ vertices (see \cref{fig1}).
-			\begin{figure}\label{fig1}[ht]
+			\begin{figure}[ht]
 				\centering
-				\includegraphics[width=0.5\textwidth]{Images/karp1.png}
-				\caption{The path used for the proof of \cref{thm5}}
+				\includegraphics[width=0.5\textwidth]{Images/app2.png}
+				\caption{Construction used for the proof of \cref{thm5}}
+				\label{fig2}
 			\end{figure}
 			Add vertices $s$ and $t$ and connect the paths as in \cref{fig2}. For each clause $C_j$ add a vertex $c_j$. Connect $c_j$ with vertex $3j+1$ in $P_i$ and connect vertex $3j$ in $P_i$ with $c_j$ if $x_i$ appears in $C_j$. For $\bar{x}_i$: Reverse direction. $F$ satisfies: Fix some satisfying truth assignment. Traverse $P_i$ rom left to right $\Leftrightarrow$ $x_i$ is true.
-			\begin{figure}\label{fig1}[ht]
+			\begin{figure}[ht]
 				\centering
-				\includegraphics[width=0.5\textwidth]{Images/karp1.png}
-				\caption{The path used for the proof of \cref{thm5}}
+				\includegraphics[width=0.5\textwidth]{Images/app3.png}
+				\caption{Another idea needed for proof of \cref{thm5}}
+				\label{fig3}
 			\end{figure}
 			 Choose for each $C_j$ a true literal (see \cref{fig3}).\par
 			 \textbf{Assume:} A directed Hamiltonian Circuit exists. \par
-			 \begin{figure}\label{fig1}[ht]
+			 \begin{figure}[ht]
 				\centering
-				\includegraphics[width=0.5\textwidth]{Images/karp1.png}
-				\caption{The path used for the proof of \cref{thm5}}
+				\includegraphics[width=0.5\textwidth]{Images/app4.png}
+				\caption{Another idea needed for proof of \cref{thm5}}
+				\label{fig4}
 			\end{figure}
 			 \textbf{Observation: } If the circuit enters a vertex $c_j$ from path $P_i$ then the next edge will go back to $P_i$ (see \cref{fig4})
 			 $\Rightarrow$ We can remove all the $c_j$ vertices from the hamiltonian circuit by replacing the two edges by one edge from some $P_i$ $\Rightarrow$ Use direction of the $P_i$s as truth values.
@@ -39,6 +43,14 @@
 		\begin{remark}
 			The same statement holds for Hamiltonian paths.
 		\end{remark}
+
+	\subsection{Hamiltonian Cycle}
+		\textbf{Input:} An undirected graph $G=(V,E)$\par
+		\textbf{Question:} Does $G$ contain a cycle of length $|V(G)|$?
+
+		\begin{theorem}\label{thm5}
+			Hamiltonian Cycle is NP-complete.
+		\end{theorem}
 
 	\subsection{Vertex Cover}
 		\textbf{Input:} A Graph $G=(V,E), R\in\mathbb{N}$\par
@@ -54,10 +66,11 @@
 				\item [1)] Connect the three vertices corresponding to the 3 literals of the same clause.
 				\item [2)] Connect the vertices $a,b$ if they correspond to negations of each other.
 			\end{itemize}
-			\begin{figure}\label{fig1}[ht]
+			\begin{figure}[ht]
 				\centering
-				\includegraphics[width=0.5\textwidth]{Images/karp1.png}
+				\includegraphics[width=0.5\textwidth]{Images/app5.png}
 				\caption{The constructed Graph for the proof of \cref{thm7}}
+				\label{fig5}
 			\end{figure}
 			\underline{Claim:} $G$ has a vertex cover of size $2q\,\Leftrightarrow$ $F$ is satisfiable.\par
 			$F$ is satisfiable $\rightarrow$ Fix some truth assignment. Choose some true literal from each clause. Take all non-chosen vertices as vertex cover. This is really a vertex cover, because we cannot have that $x_i$ and $\bar x_i$ are true for some $i$.\newline\noindent
@@ -122,10 +135,11 @@
 		\end{theorem}
 		\begin{proof}
 			Obviously 3DM is in NP. Reduce 3-SAT to 3DM as follows:\par
-			\begin{figure}\label{fig6}[ht]
+			\begin{figure}[ht]
 				\centering
-				\includegraphics[width=0.5\textwidth]{Images/karp1.png}
-				\caption{The path used for the proof of \cref{thm5}}
+				\includegraphics[width=0.5\textwidth]{Images/app6.png}
+				\caption{Idea to be used in the proof of \cref{thm12}}
+				\label{fig6}
 			\end{figure}
 			Let $F=C_1\land...\land C_k$ be a 3-SAT formula in the variables $x_1,...,x_n$. For each variable $x$ take vertices $a_1^x,...,x_{2k}^x,b_1^x,...,b_{2k}^x$. Then we add triples $(a_i^x,a_{i+1}^x,b_i^x)$ (indices taken ``mod'' 2k), see also \cref{fig6}.\par
 			A triple $(a_i^x,a_{i+1}^x,b_i^x)$ is called \underline{even} if $i$ is even. Otherwise it is called \underline{odd}.\par

@@ -1,4 +1,4 @@
-\documentclass[../skript.tex]{subfiles}
+\documentclass[../script.tex]{subfiles}
 	% Next figure will be labeled fig9
 			\begin{corollary}\label{cor20}
 				There exists a pseudo-polynomial algorithm for Partition.
@@ -141,7 +141,7 @@
 					O\left(m^2 + \sum |S_i|\right)
 				\]
 			\end{remark}
-			\textbf{The Analysis is best possible: } Take a set of $n$ elements and take a singleton set for each element. Assign the weight $\frac{1}{n-(i-1)}$ for the singleton set $i$ (assign the weight $1+\varpesilon$ to the whole set). Then the approximation ratio is $\frac{H_n}{1+\varepsilon}$. Even in the unweighted case, there is an example with 12 sets that shows that the analysis was best possible.\newline\newline\noindent
+			\textbf{The Analysis is best possible: } Take a set of $n$ elements and take a singleton set for each element. Assign the weight $\frac{1}{n-(i-1)}$ for the singleton set $i$ (assign the weight $1+\varepsilon$ to the whole set). Then the approximation ratio is $\frac{H_n}{1+\varepsilon}$. Even in the unweighted case, there is an example with 12 sets that shows that the analysis was best possible.\newline\newline\noindent
 
 			\textbf{Question: } What happens if $c:\{S_1,...,S_m\}\to\mathbb{R}$, i.e. negative weights for some sets are possible?\par
 			An idea would be to take all sets with negative weight and run the greedy algorithm on the remaining algorithms. This has approximation ratio $\infty$. \newline\newline\noindent
@@ -149,7 +149,7 @@
 
 	\section{Vertex Cover: Special case of set Cover}
 		\begin{theorem}\label{thm24}
-			There exists a $2$-approximation for \empoh{Minimum Vertex Cover}.
+			There exists a $2$-approximation for \emph{Minimum Vertex Cover}.
 		\end{theorem}
 		\begin{proof}
 			Compute a maximal matching and take all endpoints of the matching into a set $S$. Then $S$ is a vertex cover of size $\leq 2 OPT$.\newline\newline\noindent
@@ -164,5 +164,9 @@
 		$k$-Center can be solved in $O(k|X|^{k+1})$, i.e. we have polynomial runtime if $k = const$.\newline\newline\noindent
 		Consider $X$ to be the vertices of a complete graph. Then We can identify the metric with $dist:E(G)\to\mathbb{R}_+$.
 		\begin{definition}
-			Given a graph $G=(V,E)$ one says that $D\subseteq V(G)$ is a \textbf{dominating set} if for all $v\in V(G)\setminus D$ there is some $d\in D$ with $\{v,d\}\in E(G)$.
+			Given a graph $G=(V,E)$ one says that $D\subseteq V(G)$ is a \textbf{dominating set} if for all $v\in V(G)\setminus D$ there is some $d\in D$ with $\{v,d\}\in E(G)$. The \textbf{domination number} of the graph is defined as
+			\[
+				dom(G)\coloneqq \min\{|D|:\,D\text{ is a dominating set in} G\}.
+			\]
 		\end{definition}
+		
